@@ -1,1 +1,57 @@
 
+<html>
+<body>
+<script>
+function student(name)
+{
+  this.name=name;
+ this.subjects=new Array(Math.floor(Math.random() *100),Math.floor(Math.random() *100),Math.floor(Math.random() *100));
+}
+var stu1=new student("satya");
+var stu2=new student("harsha");
+var stu3=new student("janu");
+var stu4=new student("pras");
+var stu5=new student("tara");
+stu1.total=stu1.subjects[0]+stu1.subjects[1]+stu1.subjects[2];
+stu2.total=stu2.subjects[0]+stu2.subjects[1]+stu2.subjects[2];
+stu3.total=stu3.subjects[0]+stu3.subjects[1]+stu3.subjects[2];
+stu4.total=stu4.subjects[0]+stu4.subjects[1]+stu4.subjects[2];
+stu5.total=stu5.subjects[0]+stu5.subjects[1]+stu5.subjects[2];
+stu1.average=stu1.total/3;
+stu2.average=stu2.total/3;
+stu3.average=stu3.total/3;
+stu4.average=stu4.total/3;
+stu5.average=stu5.total/3;
+
+var obj=[stu1,stu2,stu3,stu4,stu5];
+obj.sort(function(a,b){ if(a.name>b.name) return 1;
+else if(a.name<b.name) return -1;
+else return 0;});
+document.writeln("SORT BY NAME"+"<br>");
+for(var i=0;i<5;i++)
+{
+  document.writeln(obj[i].name);
+}
+function Total(){
+
+for(var i=0;i<5;i++)
+{
+   document.writeln(obj[i].name+" \t\t"+obj[i].total+"\t\t"+"<br>");
+}
+}
+function Average(){
+
+for(var i=0;i<5;i++)
+{
+   document.writeln(obj[i].name+" \t\t"+obj[i].average+"\t\t"+"<br>");
+}
+}
+document.writeln("SORTING BASED ON TOTAL"+"<br>");
+obj.sort(function(a,b){return b.total-a.total;});
+Total();
+document.writeln("SORTING BASED ON AVERAGE"+"<br>");
+obj.sort(function(a,b){return b.average-a.average;});
+Average();
+</script>
+</body>
+</html>
